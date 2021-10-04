@@ -9,7 +9,7 @@ public class CreditCardTest {
 
     @Before
     public void before(){
-        creditCard = new CreditCard("Visa", 4321, "07/2023", 400.00, 2.00);
+        creditCard = new CreditCard("Visa", 4321, "07/2023", 400.00, 0.02);
     }
 
     @Test
@@ -35,5 +35,13 @@ public class CreditCardTest {
     @Test
     public void hasRiskMultiplier(){
         assertEquals(2.00, creditCard.getRiskMultiplier(),0.01);
+    }
+
+    @Test
+    public void transactionReducesLimitandAddsToCharges(){
+        creditCard.charge(4.00);
+        assertEquals(1, creditCard.getCharges().size());
+        assertEquals(396.00, creditCard.getCreditLimit(), 0.01);
+        assertEquals(0.16, creditCard.getTransactionFee(4),0.01);
     }
 }
