@@ -1,4 +1,4 @@
-public class GiftCard {
+public class GiftCard implements IChargeable{
 
     private String vendor;
     private Double balance;
@@ -16,11 +16,13 @@ public class GiftCard {
         return balance;
     }
 
-    public int transactionFee(){
+
+    public double getTransactionFee(double purchaseAmount) {
         return 0;
     }
 
-    public void charge(Double purchaseAmount) {
+    public void charge(double purchaseAmount) {
         this.balance-=purchaseAmount;
+
     }
 }
