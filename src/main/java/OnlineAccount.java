@@ -9,10 +9,20 @@ public class OnlineAccount {
 
     public OnlineAccount(String name) {
         this.name = name;
+        this.paymentMethods = new ArrayList<>();
+        this.transactionFees = new ArrayList<>();
 
     }
 
     public String getName() {
         return name;
+    }
+
+    public ArrayList<PaymentCard> getPaymentMethods() {
+        return paymentMethods;
+    }
+
+    public ArrayList<Double> getTransactionFees() {
+        return transactionFees;
     }
 }

@@ -17,4 +17,14 @@ public class OnlineAccountTest {
     public void accountHasName(){
         assertEquals("Jim", onlineAccount.getName());
     }
+
+    @Test
+    public void paymentMethodArrayListHasSizeZero(){
+        assertEquals(0, onlineAccount.getPaymentMethods().size());
+    }
+
+    @Test
+    public void transactionFeesArrayListHasSizeZero(){
+        assertEquals(0, onlineAccount.getTransactionFees().size());
+    }
 }
